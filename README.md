@@ -23,3 +23,5 @@ discord ocr bot on Render's web-server
   - https://qiita.com/croquette0212/items/02d50cd77932f5a0aae1
   - を参考に、Werkzeug==2.3.7 へダウングレード
   - 手元の環境を参考に requests==2.26.0 をrequirements.txtに記述
+  - https://teratail.com/questions/3qvdlwofzo3aww
+  - discord.Client()に仕様変更に対応

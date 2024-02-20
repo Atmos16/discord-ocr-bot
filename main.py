@@ -21,7 +21,7 @@ from discord.ext import commands
 
 #Initiation
 client = commands.Bot(command_prefix="!")
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all()) # 
 imageFileTypes = ['png', 'jpg', 'jpeg']
 
 #Grabbing List of Channel IDs

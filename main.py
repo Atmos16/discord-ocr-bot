@@ -55,38 +55,38 @@ token = os.getenv("DISCORD_TOKEN") # renderで入力かな
 
 @client.event
 async def on_message(message):
-    #Check if message's channel id in channel id filter
-    if message.channel.id in channelIDList:
+    # #Check if message's channel id in channel id filter
+    # if message.channel.id in channelIDList:
         
-        #checks for attachments
-        if message.attachments:
+    #checks for attachments
+    if message.attachments:
+        
+        #stores url to image
+        link = message.attachments[0].url
+        linkTemp = message.attachments[0].url
+        
+        #checks if attachment is image type
+        fileType = linkTemp.split(".")
+        
+        #if it is an image type
+        if fileType[-1].lower() in imageFileTypes:
             
-            #stores url to image
-            link = message.attachments[0].url
-            linkTemp = message.attachments[0].url
+            #Log Url to console
+            print(f"[{datetime.datetime.now()}] {link}")
             
-            #checks if attachment is image type
-            fileType = linkTemp.split(".")
+            #calls OCR function
+            content = OCRImage(link)
             
-            #if it is an image type
-            if fileType[-1].lower() in imageFileTypes:
+            #if content is not empty send embed
+            if content:
                 
-                #Log Url to console
-                print(f"[{datetime.datetime.now()}] {link}")
-                
-                #calls OCR function
-                content = OCRImage(link)
-                
-                #if content is not empty send embed
-                if content:
-                    
-                    #Embed formatting
-                    embed=discord.Embed()
-                    embed.colour = 0x725E7A
-                    embed.set_author(name="Discord OCR")
-                    embed.add_field(name="Content:", value=content, inline=True)
-                    embed.set_footer(text="Made By: RKuangDev - GitHub")
-                    await message.channel.send(embed=embed)
+                #Embed formatting
+                embed=discord.Embed()
+                embed.colour = 0x725E7A
+                embed.set_author(name="Discord OCR")
+                embed.add_field(name="Content:", value=content, inline=True)
+                embed.set_footer(text="Made By: RKuangDev - GitHub")
+                await message.channel.send(embed=embed)
      
 # Web サーバの立ち上げ
 keep_alive()         

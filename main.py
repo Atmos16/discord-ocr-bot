@@ -20,7 +20,7 @@ from PIL import ImageFilter
 from discord.ext import commands
 
 #Initiation
-client = commands.Bot(command_prefix="!", ntents=discord.Intents.all())
+client = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 # client = discord.Client(intents=discord.Intents.all()) # 
 imageFileTypes = ['png', 'jpg', 'jpeg']
 

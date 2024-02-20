@@ -46,11 +46,12 @@ def OCRImage(imageLink):
 token = os.getenv("DISCORD_TOKEN") # renderで入力かな
     
 #Calling Channel Id function + Prompt
-token = getToken()
-channelIDList = storedChannelIDs()
-print("\nLoaded Channel IDs:")
-for x in channelIDList:
-    print(x)
+# よくわからないので全部消す
+# token = getToken()
+# channelIDList = storedChannelIDs()
+# print("\nLoaded Channel IDs:")
+# for x in channelIDList:
+#     print(x)
 
 @client.event
 async def on_message(message):

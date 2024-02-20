@@ -43,7 +43,7 @@ def OCRImage(imageLink):
 #     with open("token.txt","r") as tokenFile:
 #         token = tokenFile.readline()
 #         return token
-token = os.getenv("DISCORD_TOKEN") # MTIwNjkwMTgxMzM5NjI0NjUyOA.GAzcC4.vLXm8pUPAI7FqMZNAqRS3p44EkTnlOcgF2qyvY はrenderで入力かな
+token = os.getenv("DISCORD_TOKEN") # renderで入力かな
     
 #Calling Channel Id function + Prompt
 token = getToken()

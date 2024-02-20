@@ -1,5 +1,6 @@
 discord.py==2.1.1
 Flask==2.2.3
+Werkzeug==2.3.7
 tesseract==0.1.3
 packaging==23.2
 pytesseract==0.3.10

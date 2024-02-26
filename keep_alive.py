@@ -3,7 +3,7 @@ from threading import Thread
 
 app = Flask('')
 
-@app.route('/')
+@app.route('/Users/sakaitaiki/desktop/on_hand_test')
 def home():
     return "I'm alive"
 

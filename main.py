@@ -25,18 +25,18 @@ client = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 imageFileTypes = ['png', 'jpg', 'jpeg']
 
 #Grabbing List of Channel IDs
-def storedChannelIDs():
-    idList = []
-    with open ("channel ID.txt", "r") as file:
-        for id in file:
-            idList.append(int(id.strip()))
-    return idList
+# def storedChannelIDs():
+#     idList = []
+#     with open ("channel ID.txt", "r") as file:
+#         for id in file:
+#             idList.append(int(id.strip()))
+#     return idList
 
 #OCR Function Proccess Image and Print Text
 def OCRImage(imageLink):
     response = requests.get(imageLink)
     img = Image.open(io.BytesIO(response.content))
-    text = pytesseract.image_to_string(img)
+    text = pytesseract.image_to_string(img, lang='eng+kor+jpn+tha')
     return text
 
 # def getToken():
@@ -60,6 +60,8 @@ async def on_message(message):
         
     #checks for attachments
     if message.attachments:
+        # print(message.content)
+        # print(message.attachments[0])
         
         #stores url to image
         link = message.attachments[0].url
@@ -69,7 +71,7 @@ async def on_message(message):
         fileType = linkTemp.split(".")
         
         #if it is an image type
-        if fileType[-1].lower() in imageFileTypes:
+        if fileType[-1].lower().split("?")[0] in imageFileTypes:
             
             #Log Url to console
             print(f"[{datetime.datetime.now()}] {link}")
@@ -85,7 +87,7 @@ async def on_message(message):
                 embed.colour = 0x725E7A
                 embed.set_author(name="Discord OCR")
                 embed.add_field(name="Content:", value=content, inline=True)
-                embed.set_footer(text="Made By: RKuangDev - GitHub")
+                # embed.set_footer(text="Made By: RKuangDev - GitHub")
                 await message.channel.send(embed=embed)
      
 # Web サーバの立ち上げ

@@ -25,3 +25,6 @@ discord ocr bot on Render's web-server
   - 手元の環境を参考に requests==2.26.0 をrequirements.txtに記述
   - https://teratail.com/questions/3qvdlwofzo3aww
   - discord.Client()に仕様変更に対応
+
+- 2024/02/26
+  - tesseractディレクトリ内にtessdataファイル(訓練済みのデータ)を配置する必要があるため、tesserctディレクトリの所在把握&ファイルの配置を実施

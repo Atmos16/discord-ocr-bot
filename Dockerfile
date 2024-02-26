@@ -5,5 +5,5 @@ RUN pip install -r requirements.txt
 COPY . /discord-ocr-bot
 RUN which tesseract
 RUN echo under maintanance...
-CMD python main.py
+# CMD python main.py
 
